@@ -1,9 +1,9 @@
-body{margin:0;padding:0;background:#ffe;font-size:14px;font-family:'微软雅黑','宋体',sans-serif;color:#231F20;overflow:auto}
+body{margin:0;padding:0;background:#fff;font-size:14px;font-family:'微软雅黑','宋体',sans-serif;color:#231F20;overflow:auto}
 a {color:#000;font-size:14px;}
 #main{width:100%;}
 #wrap{position:relative;margin:0 auto;width:1100px;height:680px;margin-top:10px;}
-#text{width:420px;height:425px;left:60px;top:80px;position:absolute;}
-#code{display:none;font-size:16px;}
+#text{width:420px;height:425px;left:60px;top:80px;position:absolute;border-radius: 1em;}
+#code{display:none;font-size:20px;}
 #clock-box {position:absolute;left:60px;top:550px;font-size:28px;display:none;}
 #clock-box a {font-size:28px;text-decoration:none;}
 #clock{margin-left:48px;}
@@ -14,4 +14,3 @@ a {color:#000;font-size:14px;}
 .say{margin-left:5px;}
 .saydo{margin-left:5px;color: red;}
 .space{margin-right:150px;}
-

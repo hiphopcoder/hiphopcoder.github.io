@@ -2,9 +2,9 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link rel="stylesheet" href="./font/css/font-awesome.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>大黑~小白</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover" />
     <link type="text/css" rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script type="text/javascript" src="./js/jscex.min.js"></script>
@@ -15,11 +15,12 @@
     <script type="text/javascript" src="./js/jscex-async-powerpack.min.js"></script>
     <script type="text/javascript" src="./js/functions.js" charset="utf-8"></script>
     <script type="text/javascript" src="./js/love.js" charset="utf-8"></script>
+    <title>大黑~小白</title>
 </head>
 
 <body>
     <audio autoplay="autopaly" loop>
-        <source src="./Beautiful-in-white.mp3" type="audio/mp3" />
+        <source src="./567.mp3" type="audio/mp3" />
     </audio>
     <div id="main">
         <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(
@@ -77,6 +78,7 @@
     <script>
         (function () {
             var canvas = $('#canvas');
+            var textblock = $('#text');
             if (!canvas[0].getContext) {
                 $("#error").show();
                 return false;
@@ -135,6 +137,8 @@
                     canvas.unbind("mousemove");
                     canvas.removeClass('hand');
                 }
+
+
             }).mousemove(function (e) {
                 var offset = canvas.offset(),
                     x, y;
@@ -180,9 +184,11 @@
 
                 // 会有闪烁不得意这样做, (＞﹏＜)
                 canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-                canvas.css("background", "#ffe");
+                canvas.css("background", "#fff");
                 $await(Jscex.Async.sleep(300));
                 canvas.css("background", "none");
+                textblock.fadeIn(500);
+                textblock.css("background-image", "url(./567.jpeg)")
             }));
             var jumpAnimate = eval(Jscex.compile("async", function () {
                 var ctx = tree.ctx;
@@ -221,8 +227,8 @@
             runAsync().start();
         })();
     </script>
-    <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-        <p>o(*￣︶￣*)o</p>
+    <div style="text-align:center;margin:50px 0; font:normal 20px/24px 'MicroSoft YaHei';">
+        <p>大黑<i class="fa fa-heartbeat" aria-hidden="true" style="color:red;"></i>小白</p>
     </div>
 </body>
 
