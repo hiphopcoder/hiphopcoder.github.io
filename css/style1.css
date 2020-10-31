@@ -1,6 +1,7 @@
-body{margin:0;padding:0;background:#fff;font-size:14px;font-family:'微软雅黑','宋体',sans-serif;color:#231F20;overflow:auto}
+body{margin:0;padding:0;background-image:url("./img/567.jpeg");font-size:14px;font-family:'微软雅黑','宋体',sans-serif;color:#231F20;overflow:auto
+}
 /* a {color:#000;font-size:14px;} */
-a {color:#000;text-decoration: auto;}
+a {color:#000;text-decoration: none;}
 #main{width:100%;text-align:center;margin:5em 0; font:normal 20px/24px 'MicroSoft YaHei';}
 #wrap{position:relative;margin:0 auto;width:1100px;height:680px;margin-top:10px;}
 #text{width:420px;height:425px;left:60px;top:80px;position:absolute;border-radius: 1em;}
@@ -23,14 +24,14 @@ a {color:#000;text-decoration: auto;}
 
 @keyframes heart{
   0%{
-        font-size:27em
+        font-size:28em
   }
 
   50%{
         font-size:30em
   }
     100%{
-        font-size:27em
+        font-size:28em
   }
 }
 
@@ -38,14 +39,14 @@ a {color:#000;text-decoration: auto;}
 i and Chrome*/
 {
   0%{
-        font-size:27em
+        font-size:28em
   }
 
   50%{
         font-size:30em
   }
     100%{
-        font-size:27em
+        font-size:28em
   }
 }
 }
