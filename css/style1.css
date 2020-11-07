@@ -24,14 +24,14 @@ a {color:#000;text-decoration: none;}
 
 @keyframes heart{
   0%{
-        font-size:28em
+        font-size:23em
   }
 
   50%{
-        font-size:30em
+        font-size:27em
   }
     100%{
-        font-size:28em
+        font-size:23em
   }
 }
 
@@ -39,14 +39,13 @@ a {color:#000;text-decoration: none;}
 i and Chrome*/
 {
   0%{
-        font-size:28em
+        font-size:23em
   }
 
   50%{
-        font-size:30em
+        font-size:27em
   }
     100%{
-        font-size:28em
+        font-size:23em
   }
-}
 }
