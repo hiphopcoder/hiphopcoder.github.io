@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" href="./font/css/font-awesome.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover" /> -->
+    <link type="text/css" rel="stylesheet" href="./css/style1.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jscex.min.js"></script>
+    <script type="text/javascript" src="./js/jscex-parser.js"></script>
+    <script type="text/javascript" src="./js/jscex-jit.js"></script>
+    <script type="text/javascript" src="./js/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="./js/jscex-async.min.js"></script>
+    <script type="text/javascript" src="./js/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="./js/functions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/love.js" charset="utf-8"></script>
+    <title>雪~天</title>
+</head>
+
+<body>
+
+<audio src="./yx.mp3" autoplay="autoplay" loop=""></audio>
+<div id="main">
+    <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(
+        <a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(
+        <a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。
+    </div>
+    <p>
+        <span id="snow">雪</span>
+        <i id="heartbeat" class="fa fa-heart fa-5x" aria-hidden="true"></i>
+        <span id="sky">天</span>
+    </p>
+</div>
+
+<!--heart1-->
+<div id="we" style="text-align:center;margin:50px 0; font:normal 20px/24px 'MicroSoft YaHei';">
+        <span>
+            <a href="./main.html"><i id="heartbeat" class="fa fa-heartbeat heart1" aria-hidden="true"></i></a>
+        </span>
+</div>
+
+<!--&lt;!&ndash;heart2&ndash;&gt;-->
+<!--<div id="we" style="text-align:center;margin:50px 0; font:normal 20px/24px 'MicroSoft YaHei';">-->
+<!--        <span>-->
+<!--            <a href="./main.html"><i id="heartbeat" class="fa fa-heartbeat heart2" aria-hidden="true"></i></a>-->
+<!--        </span>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;heart3&ndash;&gt;-->
+<!--<div id="we" style="text-align:center;margin:50px 0; font:normal 20px/24px 'MicroSoft YaHei';">-->
+<!--        <span>-->
+<!--            <a href="./main.html"><i id="heartbeat" class="fa fa-heartbeat heart3" aria-hidden="true"></i></a>-->
+<!--        </span>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;heart4&ndash;&gt;-->
+<!--<div id="we" style="text-align:center;margin:50px 0; font:normal 20px/24px 'MicroSoft YaHei';">-->
+<!--        <span>-->
+<!--            <a href="./main.html"><i id="heartbeat" class="fa fa-heartbeat heart4" aria-hidden="true"></i></a>-->
+<!--        </span>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;heart5&ndash;&gt;-->
+<!--<div id="we" style="text-align:center;margin:50px 0; font:normal 20px/24px 'MicroSoft YaHei';">-->
+<!--        <span>-->
+<!--            <a href="./main.html"><i id="heartbeat" class="fa fa-heartbeat heart5" aria-hidden="true"></i></a>-->
+<!--        </span>-->
+<!--</div>-->
+
+</body>
+
+<script>
+    var stop, staticx;
+    var img = new Image();
+    img.src = "./img/2.png"
+
+    function Sakura(x, y, s, r, fn) {
+        this.x = x;
+        this.y = y;
+        this.s = s;
+        this.r = r;
+        this.fn = fn;
+    }
+
+    Sakura.prototype.draw = function (cxt) {
+        cxt.save();
+        var xc = 40 * this.s / 4;
+        cxt.translate(this.x, this.y);
+        cxt.rotate(this.r);
+        cxt.drawImage(img, 0, 0, 40 * this.s, 40 * this.s)
+        cxt.restore();
+    }
+
+    Sakura.prototype.update = function () {
+        this.x = this.fn.x(this.x, this.y);
+        this.y = this.fn.y(this.y, this.y);
+        this.r = this.fn.r(this.r);
+        if (this.x > window.innerWidth ||
+            this.x < 0 ||
+            this.y > window.innerHeight ||
+            this.y < 0
+        ) {
+            this.r = getRandom('fnr');
+            if (Math.random() > 0.4) {
+                this.x = getRandom('x');
+                this.y = 0;
+                this.s = getRandom('s');
+                this.r = getRandom('r');
+            } else {
+                this.x = window.innerWidth;
+                this.y = getRandom('y');
+                this.s = getRandom('s');
+                this.r = getRandom('r');
+            }
+        }
+    }
+
+    SakuraList = function () {
+        this.list = [];
+    }
+    SakuraList.prototype.push = function (sakura) {
+        this.list.push(sakura);
+    }
+    SakuraList.prototype.update = function () {
+        for (var i = 0, len = this.list.length; i < len; i++) {
+            this.list[i].update();
+        }
+    }
+    SakuraList.prototype.draw = function (cxt) {
+        for (var i = 0, len = this.list.length; i < len; i++) {
+            this.list[i].draw(cxt);
+        }
+    }
+    SakuraList.prototype.get = function (i) {
+        return this.list[i];
+    }
+    SakuraList.prototype.size = function () {
+        return this.list.length;
+    }
+
+    function getRandom(option) {
+        var ret, random;
+        switch (option) {
+            case 'x':
+                ret = Math.random() * window.innerWidth;
+                break;
+            case 'y':
+                ret = Math.random() * window.innerHeight;
+                break;
+            case 's':
+                ret = Math.random();
+                break;
+            case 'r':
+                ret = Math.random() * 6;
+                break;
+            case 'fnx':
+                random = -0.5 + Math.random() * 1;
+                ret = function (x, y) {
+                    return x + 0.5 * random - 1.7;
+                };
+                break;
+            case 'fny':
+                random = 1.5 + Math.random() * 0.7
+                ret = function (x, y) {
+                    return y + random;
+                };
+                break;
+            case 'fnr':
+                random = Math.random() * 0.03;
+                ret = function (r) {
+                    return r + random;
+                };
+                break;
+        }
+        return ret;
+    }
+
+    function startSakura() {
+
+        requestAnimationFrame = window.requestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            window.oRequestAnimationFrame;
+        var canvas = document.createElement('canvas'),
+            cxt;
+        staticx = true;
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.setAttribute('style', 'position: fixed;left: 0;top: 0;pointer-events: none;');
+        canvas.setAttribute('id', 'canvas_sakura');
+        document.getElementsByTagName('body')[0].appendChild(canvas);
+        cxt = canvas.getContext('2d');
+        var sakuraList = new SakuraList();
+        for (var i = 0; i < 50; i++) {
+            var sakura, randomX, randomY, randomS, randomR, randomFnx, randomFny;
+            randomX = getRandom('x');
+            randomY = getRandom('y');
+            randomR = getRandom('r');
+            randomS = getRandom('s');
+            randomFnx = getRandom('fnx');
+            randomFny = getRandom('fny');
+            randomFnR = getRandom('fnr');
+            sakura = new Sakura(randomX, randomY, randomS, randomR, {
+                x: randomFnx,
+                y: randomFny,
+                r: randomFnR
+            });
+            sakura.draw(cxt);
+            sakuraList.push(sakura);
+        }
+        stop = requestAnimationFrame(function () {
+            cxt.clearRect(0, 0, canvas.width, canvas.height);
+            sakuraList.update();
+            sakuraList.draw(cxt);
+            stop = requestAnimationFrame(arguments.callee);
+        })
+    }
+
+    window.onresize = function () {
+        var canvasSnow = document.getElementById('canvas_snow');
+        canvasSnow.width = window.innerWidth;
+        canvasSnow.height = window.innerHeight;
+    }
+
+    img.onload = function () {
+        startSakura();
+    }
+
+    function stopp() {
+        if (staticx) {
+            var child = document.getElementById("canvas_sakura");
+            child.parentNode.removeChild(child);
+            window.cancelAnimationFrame(stop);
+            staticx = false;
+        } else {
+            startSakura();
+        }
+    }
+</script>
+
+
+</html>

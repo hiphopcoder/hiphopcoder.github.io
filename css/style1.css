@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("./img/567.jpeg");
+    font-size: 14px;
+    font-family: '微软雅黑', '宋体', sans-serif;
+    color: #231F20;
+    overflow: auto
+}
+
+/* a {color:#000;font-size:14px;} */
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+#main {
+    width: 100%;
+    text-align: center;
+    margin: 5em 0;
+    font: normal 20px/24px 'MicroSoft YaHei';
+}
+
+#wrap {
+    position: relative;
+    margin: 0 auto;
+    width: 1100px;
+    height: 680px;
+    margin-top: 10px;
+}
+
+#text {
+    width: 420px;
+    height: 425px;
+    left: 60px;
+    top: 80px;
+    position: absolute;
+    border-radius: 1em;
+}
+
+#code {
+    display: none;
+    font-size: 22px;
+}
+
+#clock-box {
+    position: absolute;
+    left: 60px;
+    top: 550px;
+    font-size: 28px;
+    display: none;
+}
+
+#clock-box a {
+    font-size: 28px;
+    text-decoration: none;
+}
+
+#clock {
+    margin-left: 48px;
+}
+
+#clock .digit {
+    font-size: 64px;
+    color: orange !important;
+}
+
+#canvas {
+    margin: 0 auto;
+    width: 1100px;
+    height: 680px;
+}
+
+#error {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 60px;
+    display: none;
+}
+
+#snow {
+    font-size: 3em;
+    border: solid 2px;
+    border-radius: 0px 3em 0px 3em;
+    padding: 0px 1em 0px 1em;
+}
+
+#sky {
+    font-size: 3em;
+    border: solid 2px;
+    border-radius: 3em 0px 3em 0px;
+    padding: 0px 1em 0px 1em;
+}
+
+#we {
+    margin: auto;
+}
+
+#heartbeat {
+    color: red;
+}
+
+.heart1:before {
+    animation: heart1 5s infinite ease-in-out  alternate;
+    -webkit-animation: heart 5s infinite; /*Safari and Chrome*/
+}
+
+/*.heart2:before {*/
+/*    animation: heart2 1s infinite ease-in-out  alternate;*/
+/*    -webkit-animation: heart 2s infinite; !*Safari and Chrome*!*/
+/*}*/
+
+/*.heart3:before {*/
+/*    animation: heart3 1s infinite ease-in-out  alternate;*/
+/*    -webkit-animation: heart 3s infinite; !*Safari and Chrome*!*/
+/*}*/
+
+/*.heart4:before {*/
+/*    animation: heart4 1s infinite ease-in-out  alternate;*/
+/*    -webkit-animation: heart 4s infinite; !*Safari and Chrome*!*/
+/*}*/
+
+/*.heart5:before {*/
+/*    animation: heart5 1s infinite ease-in-out  alternate;*/
+/*    -webkit-animation: heart 5s infinite; !*Safari and Chrome*!*/
+/*}*/
+
+
+
+.hand {
+    cursor: pointer;
+}
+
+.say {
+    margin-left: 5px;
+}
+
+.space {
+    margin-right: 150px;
+}
+
+
+@keyframes heart {
+    0% {
+        font-size: 23em;
+    }
+
+    50% {
+        font-size: 27em;
+    }
+    100% {
+        font-size: 23em;
+    }
+}
+
+@-webkit-keyframes heart /*Safar
+i and Chrome*/
+{
+    0% {
+        font-size: 23em
+    }
+
+    50% {
+        font-size: 27em
+    }
+    100% {
+        font-size: 23em
+    }
+}
